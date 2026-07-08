@@ -1,0 +1,11 @@
+.git
+.idea
+.vscode
+vendor
+var/cache/*
+!var/cache/products
+!var/cache/products/.gitkeep
+var/log/*
+!var/log/.gitkeep
+var/storage/counters/*
+!var/storage/counters/.gitkeep
