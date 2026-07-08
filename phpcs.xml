@@ -2,6 +2,10 @@
 <ruleset name="Logio">
     <description>CodeSniffer rules for the Logio PHP application.</description>
     <rule ref="PSR12"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
     <file>public</file>
     <file>src</file>
     <file>tests</file>

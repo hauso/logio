@@ -5,7 +5,6 @@ WORKDIR /app
 RUN apk add --no-cache \
         $PHPIZE_DEPS \
         git \
-        icu-dev \
         linux-headers \
         oniguruma-dev \
         unzip \
@@ -17,8 +16,10 @@ RUN apk add --no-cache \
     && apk del $PHPIZE_DEPS
 
 COPY --from=composer:2.8 /usr/bin/composer /usr/bin/composer
+COPY docker/php/conf.d/php.ini /usr/local/etc/php/conf.d/php.ini
 COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY docker/php/docker-entrypoint.sh /usr/local/bin/logio-docker-entrypoint
+RUN chmod +x /usr/local/bin/logio-docker-entrypoint
 
-ENTRYPOINT ["logio-docker-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/logio-docker-entrypoint"]
 CMD ["php-fpm"]
