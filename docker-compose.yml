@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     working_dir: /app
+    env_file:
+      - .env
     volumes:
       - ./:/app
     networks:

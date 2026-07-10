@@ -18,18 +18,22 @@
     },
     "autoload": {
         "psr-4": {
-            "Logio\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Logio\\Tests\\": "tests/"
-        }
+            "App\\Tests\\": "tests/"
+        },
+        "classmap": [
+            "stubs/"
+        ]
     },
     "scripts": {
         "test": "phpunit",
         "phpstan": "phpstan analyse",
         "phpcs": "phpcs",
+        "phpcbf": "phpcbf",
         "check": [
             "@test",
             "@phpstan",

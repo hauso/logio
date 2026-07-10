@@ -2,10 +2,49 @@
 <ruleset name="Logio">
     <description>CodeSniffer rules for the Logio PHP application.</description>
     <rule ref="PSR12"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
+    <!-- strict_types -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="spacesCountAroundEqualsSign" value="0"/>
+        </properties>
+    </rule>
+
+    <!-- use/import statements -->
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UselessAlias"/>
+
+    <!-- arrays a trailing commas -->
+    <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall"/>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration"/>
+
+    <!-- triedy -->
+    <rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility"/>
+    <rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference"/>
+
+    <!-- type hint formatting -->
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
+
+    <!-- drobné bezpečné čistenie -->
+    <rule ref="SlevomatCodingStandard.Operators.NegationOperatorSpacing"/>
+    <rule ref="SlevomatCodingStandard.Operators.SpreadOperatorSpacing"/>
+    <rule ref="SlevomatCodingStandard.PHP.ShortList"/>
+    <rule ref="SlevomatCodingStandard.PHP.UselessParentheses"/>
+    <rule ref="SlevomatCodingStandard.PHP.UselessSemicolon"/>
+    <rule ref="SlevomatCodingStandard.Variables.DuplicateAssignmentToVariable"/>
+    <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces"/>
+
+    <!-- Test doubles are declared alongside the test that uses them. -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+
     <file>public</file>
     <file>src</file>
     <file>tests</file>
