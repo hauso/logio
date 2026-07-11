@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-use App\Infrastructure\Cache\FileProductCache;
-use App\Infrastructure\Cache\ProductCacheFactory;
+use App\Application\ProductDetailService;
 use App\Config\AppConfig;
 use App\Http\ProductController;
+use App\Infrastructure\Cache\FileProductCache;
+use App\Infrastructure\Cache\ProductCacheFactory;
 use App\Infrastructure\Counter\FileProductQueryCounter;
 use App\Infrastructure\Counter\ProductQueryCounterFactory;
 use App\Infrastructure\Repository\ElasticSearchProductRepository;
 use App\Infrastructure\Repository\MysqlProductRepository;
 use App\Infrastructure\Repository\ProductRepositoryFactory;
-use App\Application\ProductDetailService;
 use Logio\Driver\IElasticSearchDriver;
 use Logio\Driver\IMySQLDriver;
 
@@ -83,4 +83,4 @@ if (preg_match('#^/products/([^/]+)$#', $path, $matches) === 1) {
 }
 
 http_response_code(404);
-echo json_encode(['error' => 'Not found'], JSON_THROW_ON_ERROR);
+echo json_encode(['error' => 'Page not found'], JSON_THROW_ON_ERROR);

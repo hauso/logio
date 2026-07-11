@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Http;
 
-use App\Infrastructure\Cache\ProductCacheInterface;
+use App\Application\ProductDetailService;
 use App\Http\ProductController;
+use App\Infrastructure\Cache\ProductCacheInterface;
 use App\Infrastructure\Counter\ProductQueryCounterInterface;
 use App\Infrastructure\Repository\ProductRepositoryInterface;
-use App\Application\ProductDetailService;
 use PHPUnit\Framework\TestCase;
 
 final class ProductControllerTest extends TestCase
